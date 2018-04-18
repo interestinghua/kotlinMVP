@@ -28,7 +28,6 @@ interface HomeContract {
          */
         fun showError(msg: String, errorCode: Int)
 
-
     }
 
     interface Presenter : IPresenter<View> {

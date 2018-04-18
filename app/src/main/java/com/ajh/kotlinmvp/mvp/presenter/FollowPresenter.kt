@@ -13,7 +13,7 @@ class FollowPresenter : BasePresenter<FollowContract.View>(), FollowContract.Pre
 
     private val followModel by lazy { FollowModel() }
 
-    private var nextPageUrl:String?=null
+    private var nextPageUrl: String? = null
 
     /**
      *  请求关注数据
@@ -32,7 +32,7 @@ class FollowPresenter : BasePresenter<FollowContract.View>(), FollowContract.Pre
                     mRootView?.apply {
                         dismissLoading()
                         //处理异常
-                        showError(ExceptionHandle.handleException(throwable),ExceptionHandle.errorCode)
+                        showError(ExceptionHandle.handleException(throwable), ExceptionHandle.errorCode)
                     }
                 })
         addSubscription(disposable)
@@ -41,18 +41,18 @@ class FollowPresenter : BasePresenter<FollowContract.View>(), FollowContract.Pre
     /**
      * 加载更多
      */
-    override fun loadMoreData(){
+    override fun loadMoreData() {
         val disposable = nextPageUrl?.let {
             followModel.loadMoreData(it)
-                    .subscribe({ issue->
+                    .subscribe({ issue ->
                         mRootView?.apply {
                             nextPageUrl = issue.nextPageUrl
                             setFollowInfo(issue)
                         }
 
-                    },{ t ->
+                    }, { t ->
                         mRootView?.apply {
-                            showError(ExceptionHandle.handleException(t),ExceptionHandle.errorCode)
+                            showError(ExceptionHandle.handleException(t), ExceptionHandle.errorCode)
                         }
                     })
 

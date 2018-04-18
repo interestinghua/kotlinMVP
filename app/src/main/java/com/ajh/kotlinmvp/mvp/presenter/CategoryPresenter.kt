@@ -27,6 +27,8 @@ class CategoryPresenter : BasePresenter<CategoryContract.View>(), CategoryContra
                         dismissLoading()
                         showCategory(categoryList)
                     }
+//                    mRootView?.dismissLoading()
+//                    mRootView?.showCategory(categoryList)
                 }, { t ->
                     mRootView?.apply {
                         dismissLoading()

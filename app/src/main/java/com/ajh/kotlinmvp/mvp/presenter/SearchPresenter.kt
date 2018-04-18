@@ -26,7 +26,8 @@ class SearchPresenter : BasePresenter<SearchContract.View>(), SearchContract.Pre
             closeSoftKeyboard()
             showLoading()
         }
-        addSubscription(disposable = searchModel.requestHotWordData()
+
+        val disposable = searchModel.requestHotWordData()
                 .subscribe({ string ->
                     mRootView?.apply {
                         setHotWordData(string)
@@ -34,20 +35,39 @@ class SearchPresenter : BasePresenter<SearchContract.View>(), SearchContract.Pre
                 }, { throwable ->
                     mRootView?.apply {
                         //处理异常
-                        showError(ExceptionHandle.handleException(throwable),ExceptionHandle.errorCode)
+                        showError(ExceptionHandle.handleException(throwable), ExceptionHandle.errorCode)
                     }
-                }))
+                })
+
+        addSubscription(disposable)
+
+//        addSubscription(disposable = searchModel.requestHotWordData()
+//                .subscribe({ string ->
+//                    mRootView?.apply {
+//                        setHotWordData(string)
+//                    }
+//                }, { throwable ->
+//                    mRootView?.apply {
+//                        //处理异常
+//                        showError(ExceptionHandle.handleException(throwable), ExceptionHandle.errorCode)
+//                    }
+//                })
+//        )
+
     }
 
     /**
      * 查询关键词
      */
     override fun querySearchData(words: String) {
+
         checkViewAttached()
+
         mRootView?.apply {
             closeSoftKeyboard()
             showLoading()
         }
+
         addSubscription(disposable = searchModel.getSearchResult(words)
                 .subscribe({ issue ->
                     mRootView?.apply {
@@ -62,7 +82,7 @@ class SearchPresenter : BasePresenter<SearchContract.View>(), SearchContract.Pre
                     mRootView?.apply {
                         dismissLoading()
                         //处理异常
-                        showError(ExceptionHandle.handleException(throwable),ExceptionHandle.errorCode)
+                        showError(ExceptionHandle.handleException(throwable), ExceptionHandle.errorCode)
                     }
                 })
         )
@@ -84,7 +104,7 @@ class SearchPresenter : BasePresenter<SearchContract.View>(), SearchContract.Pre
                     }, { throwable ->
                         mRootView?.apply {
                             //处理异常
-                            showError(ExceptionHandle.handleException(throwable),ExceptionHandle.errorCode)
+                            showError(ExceptionHandle.handleException(throwable), ExceptionHandle.errorCode)
                         }
                     }))
         }

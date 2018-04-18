@@ -9,19 +9,16 @@ import com.ajh.kotlinmvp.net.exception.ExceptionHandle
  * Created by xuhao on 2017/11/30.
  * desc: 获取 TabInfo Presenter
  */
-class HotTabPresenter:BasePresenter<HotTabContract.View>(),HotTabContract.Presenter {
+class HotTabPresenter : BasePresenter<HotTabContract.View>(), HotTabContract.Presenter {
 
     private val hotTabModel by lazy { HotTabModel() }
-
 
     override fun getTabInfo() {
         checkViewAttached()
         val disposable = hotTabModel.getTabInfo()
-                .subscribe({
-                    tabInfo->
+                .subscribe({ tabInfo ->
                     mRootView?.setTabInfo(tabInfo)
-                },{
-                    throwable->
+                }, { throwable ->
                     //处理异常
                     mRootView?.showError(ExceptionHandle.handleException(throwable), ExceptionHandle.errorCode)
                 })

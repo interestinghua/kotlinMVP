@@ -30,7 +30,7 @@ class RankPresenter : BasePresenter<RankContract.View>(), RankContract.Presenter
                     mRootView?.apply {
                         dismissLoading()
                         //处理异常
-                        showError(ExceptionHandle.handleException(throwable),ExceptionHandle.errorCode)
+                        showError(ExceptionHandle.handleException(throwable), ExceptionHandle.errorCode)
                     }
                 })
         addSubscription(disposable)

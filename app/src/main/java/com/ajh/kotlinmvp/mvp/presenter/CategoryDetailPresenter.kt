@@ -11,6 +11,7 @@ import com.ajh.kotlinmvp.mvp.model.CategoryDetailModel
 class CategoryDetailPresenter : BasePresenter<CategoryDetailContract.View>(), CategoryDetailContract.Presenter {
 
     private val categoryDetailModel by lazy {
+        //懒加载
         CategoryDetailModel()
     }
 

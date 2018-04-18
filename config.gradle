@@ -1,4 +1,4 @@
-ext{
+ext {
 
     android = [
             compileSdkVersion: 26,
@@ -19,11 +19,11 @@ ext{
 
     supportDeps = [
             //--------  support  -------
-            supportv4               : "com.android.support:support-v4:$dependVersion.androidSupportSdkVersion",
-            appcompatv7             : "com.android.support:appcompat-v7:$dependVersion.androidSupportSdkVersion",
-            cardview                : "com.android.support:cardview-v7:$dependVersion.androidSupportSdkVersion",
-            design                  : "com.android.support:design:$dependVersion.androidSupportSdkVersion",
-            annotations             : "com.android.support:support-annotations:$dependVersion.androidSupportSdkVersion"
+            supportv4  : "com.android.support:support-v4:$dependVersion.androidSupportSdkVersion",
+            appcompatv7: "com.android.support:appcompat-v7:$dependVersion.androidSupportSdkVersion",
+            cardview   : "com.android.support:cardview-v7:$dependVersion.androidSupportSdkVersion",
+            design     : "com.android.support:design:$dependVersion.androidSupportSdkVersion",
+            annotations: "com.android.support:support-annotations:$dependVersion.androidSupportSdkVersion"
     ]
 
 
@@ -36,8 +36,8 @@ ext{
     ]
 
     rxJava = [
-            rxJava                : "io.reactivex.rxjava2:rxjava:$dependVersion.rxJava",
-            rxAndroid             : "io.reactivex.rxjava2:rxandroid:$dependVersion.rxAndroid"
+            rxJava   : "io.reactivex.rxjava2:rxjava:$dependVersion.rxJava",
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:$dependVersion.rxAndroid"
     ]
 
 
@@ -54,9 +54,7 @@ ext{
     otherLibs = [glide]
 
     // APT
-    annotationProcessorLibs =[glideCompiler]
-
-
+    annotationProcessorLibs = [glideCompiler]
 
 
 }

@@ -33,6 +33,7 @@ class VideoDetailPresenter : BasePresenter<VideoDetailContract.View>(), VideoDet
         val netType = NetworkUtil.isWifi(MyApplication.context)
         // 检测是否绑定 View
         checkViewAttached()
+        //返回一个非空的 b 或者抛出一个 b 为空的 NPE
         if (playInfo!!.size > 1) {
             // 当前网络是 Wifi环境下选择高清的视频
             if (netType) {
@@ -74,7 +75,9 @@ class VideoDetailPresenter : BasePresenter<VideoDetailContract.View>(), VideoDet
      * 请求相关的视频数据
      */
     override fun requestRelatedVideo(id: Long) {
+
         mRootView?.showLoading()
+
         val disposable = videoDetailModel.requestRelatedData(id)
                 .subscribe({ issue ->
                     mRootView?.apply {

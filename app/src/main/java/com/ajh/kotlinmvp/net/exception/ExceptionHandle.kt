@@ -18,10 +18,10 @@ import java.text.ParseException
 
 class ExceptionHandle {
 
-
     companion object {
-         var errorCode = ErrorStatus.UNKNOWN_ERROR
-         var errorMsg = "请求失败，请稍后重试"
+
+        var errorCode = ErrorStatus.UNKNOWN_ERROR
+        var errorMsg = "请求失败，请稍后重试"
 
         fun handleException(e: Throwable): String {
             e.printStackTrace()
@@ -63,6 +63,5 @@ class ExceptionHandle {
         }
 
     }
-
 
 }

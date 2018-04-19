@@ -10,7 +10,6 @@ import java.net.NetworkInterface
 import java.net.SocketException
 import java.net.URL
 
-
 /**
  * Created by xuhao on 2017/11/13.
  */

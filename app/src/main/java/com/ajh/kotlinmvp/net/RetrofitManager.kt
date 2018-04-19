@@ -18,17 +18,14 @@ import java.util.concurrent.TimeUnit
  *
  */
 
-object RetrofitManager{
+object RetrofitManager {
 
     private var client: OkHttpClient? = null
     private var retrofit: Retrofit? = null
 
+    val service: ApiService by lazy { getRetrofit()!!.create(ApiService::class.java) }
 
-
-
-    val service: ApiService by lazy { getRetrofit()!!.create(ApiService::class.java)}
-
-    private var token:String by Preference("token","")
+    private var token: String by Preference("token", "")
 
     /**
      * 设置公共参数
@@ -129,6 +126,5 @@ object RetrofitManager{
         }
         return retrofit
     }
-
 
 }

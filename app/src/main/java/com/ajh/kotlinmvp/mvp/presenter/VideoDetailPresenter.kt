@@ -19,7 +19,6 @@ import com.ajh.kotlinmvp.utils.NetworkUtil
 class VideoDetailPresenter : BasePresenter<VideoDetailContract.View>(), VideoDetailContract.Presenter {
 
     private val videoDetailModel: VideoDetailModel by lazy {
-
         VideoDetailModel()
     }
 

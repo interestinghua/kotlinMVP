@@ -13,6 +13,7 @@ interface CategoryDetailContract {
     interface View : IBaseView {
         /**
          *  设置列表数据
+         *  页面渲染
          */
         fun setCateDetailList(itemList: ArrayList<HomeBean.Issue.Item>)
 
@@ -22,6 +23,10 @@ interface CategoryDetailContract {
     }
 
     interface Presenter : IPresenter<View> {
+
+        /**
+         * 网络请求
+         */
 
         fun getCategoryDetailList(id: Long)
 

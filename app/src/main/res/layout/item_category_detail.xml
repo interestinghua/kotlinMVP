@@ -9,8 +9,7 @@
         android:id="@+id/iv_image"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:scaleType="fitXY"
-        />
+        android:scaleType="fitXY" />
 
     <View
         android:layout_width="match_parent"

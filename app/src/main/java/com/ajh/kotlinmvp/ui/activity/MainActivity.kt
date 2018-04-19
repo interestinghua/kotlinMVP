@@ -36,7 +36,7 @@ class MainActivity : BaseActivity() {
     private var mHomeFragment: HomeFragment? = null
     private var mDiscoveryFragment: DiscoveryFragment? = null
     private var mHotFragment: HotFragment? = null
-    private var mMineFragment: MineFragment?=null
+    private var mMineFragment: MineFragment? = null
 
     //默认为0
     private var mIndex = 0
@@ -56,7 +56,6 @@ class MainActivity : BaseActivity() {
     override fun layoutId(): Int {
         return R.layout.activity_main
     }
-
 
 
     //初始化底部菜单
@@ -100,11 +99,10 @@ class MainActivity : BaseActivity() {
                 transaction.show(mDiscoveryFragment)
             }
             2 //热门
-            -> if ( mHotFragment == null) {
+            -> if (mHotFragment == null) {
                 mHotFragment = HotFragment.getInstance(mTitles[position])
                 transaction.add(R.id.fl_container, mHotFragment, "hot")
-            }
-            else {
+            } else {
                 transaction.show(mHotFragment)
             }
 
@@ -161,6 +159,7 @@ class MainActivity : BaseActivity() {
     override fun initData() {
 
     }
+
     override fun start() {
 
     }
@@ -179,7 +178,6 @@ class MainActivity : BaseActivity() {
         }
         return super.onKeyDown(keyCode, event)
     }
-
 
 
 }

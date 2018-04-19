@@ -21,7 +21,7 @@ class SearchPresenter : BasePresenter<SearchContract.View>(), SearchContract.Pre
      */
     override fun requestHotWordData() {
         checkViewAttached()
-        checkViewAttached()
+//        checkViewAttached()
         mRootView?.apply {
             closeSoftKeyboard()
             showLoading()

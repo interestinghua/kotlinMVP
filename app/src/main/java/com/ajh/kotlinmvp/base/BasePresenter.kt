@@ -22,7 +22,7 @@ open class BasePresenter<T : IBaseView> : IPresenter<T> {
     override fun detachView() {
         mRootView = null
 
-         //保证activity结束时取消所有正在执行的订阅
+        //保证activity结束时取消所有正在执行的订阅
         if (!compositeDisposable.isDisposed) {
             compositeDisposable.clear()
         }

@@ -15,6 +15,7 @@ class CategoryDetailModel {
      * 获取分类下的 List 数据
      */
     fun getCategoryDetailList(id: Long): Observable<HomeBean.Issue> {
+        //从io线程切换到主线程
         return RetrofitManager.service.getCategoryDetailList(id)
                 .compose(SchedulerUtils.ioToMain())
     }
@@ -23,6 +24,7 @@ class CategoryDetailModel {
      * 加载更多数据
      */
     fun loadMoreData(url: String): Observable<HomeBean.Issue> {
+        //从io线程切换到主线程
         return RetrofitManager.service.getIssueData(url)
                 .compose(SchedulerUtils.ioToMain())
     }
